@@ -30,6 +30,7 @@ class SpaceShip : SKSpriteNode {
         shipColor               = SKColor.clearColor()
         ghostShip               = SKSpriteNode(texture: SKTexture(imageNamed:"Spaceship"), color: SKColor.clearColor(), size: CGSizeMake(100, 100))
         ghostShip?.position.x   = (GameScene.getInstance()?.size.width)!
+        ghostShip?.position.y   = 0
         ghostShip?.physicsBody = SKPhysicsBody(texture: texture!, size: size)
         physicsBody?.categoryBitMask = SHIP_BITMASK
         physicsBody?.collisionBitMask = BLANK_BITMASK
@@ -43,7 +44,10 @@ class SpaceShip : SKSpriteNode {
     
     func shoot() -> Projectile{
         let projectile = Projectile(texture: SKTexture(imageNamed: "proj"), color: SKColor.clearColor(), size: CGSizeMake(15, 15))
-        let origin = self.convertPoint(CGPointMake(0, 50), toNode: self.parent!)
+        
+        let origin = self.position.x > 0 ?
+            self.convertPoint(CGPointMake(0, 50), toNode: self.parent!) :
+            ghostShip!.convertPoint(CGPointMake(0, 50), toNode:self.parent!)
         self.parent!.addChild(projectile)
         projectile.position = origin
         return projectile
