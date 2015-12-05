@@ -2,7 +2,7 @@
 //  Meteor.swift
 //  Pterattack
 //
-//  Created by epochchhcchchhhh on 12/4/15.
+//  Created by Clement on 12/4/15.
 //
 //
 
@@ -12,18 +12,19 @@ import SpriteKit
 
 class Meteor : SKSpriteNode {
     
-    var velocity    = -1
-    var size        = -1
-    var health      = -1
-    var metColor    = SKColor.clearColor()
+    var velocity = -1
+    var health   = -1
+    var metColor = SKColor.clearColor()
     
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        velocity    = 100
-        size        = 50
+        position.x  = CGFloat(arc4random_uniform(UInt32(GameScene.getInstance()!.size.width)))
+        position.y  = size.height/2 + (GameScene.getInstance()?.size.height)!
+        
+        velocity    = 2
         health      = 100
-        metColor    = SKColor.blackColor()
+        metColor    = color
         
     }
     

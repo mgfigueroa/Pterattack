@@ -18,6 +18,8 @@ class GameScene: SKScene {
     var motionManager = CMMotionManager()
     var tilt = 0.0
     var ship : SpaceShip?
+    var level : Level?
+    var meteors = [Meteor]()
     
     override func didMoveToView(view: SKView) {
         print("WIDTH", self.size.width, self.size.height)
@@ -26,9 +28,10 @@ class GameScene: SKScene {
                 self.tilt = data!.acceleration.x
             })
         }
-        
+        self.backgroundColor = SKColor.whiteColor()
         ship = SpaceShip.getInstance()
         ship!.position = CGPointMake(size.width/2, size.height * 0.1)
+        level = Level()
         self.addChild(ship!)
         
     }
@@ -38,6 +41,25 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
+        updateShipPosition()
+        createMeteors()
+        updateMeteors()
+    }
+    
+    private func updateMeteors() {
+        for meteor in meteors {
+            meteor.position.y -= CGFloat(meteor.velocity)
+        }
+    }
+    
+    private func createMeteors() {
+        if let meteor = level?.spawnMeteor() {
+            addChild(meteor)
+            meteors.append(meteor)
+        }
+    }
+    
+    private func updateShipPosition() {
         if(abs(self.tilt) > THRESHOLD) {
             let offset = self.tilt > 0 ? VELOCITY : -VELOCITY
             ship!.position.x += offset
