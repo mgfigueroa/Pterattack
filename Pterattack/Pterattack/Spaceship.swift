@@ -20,16 +20,33 @@ class SpaceShip : SKSpriteNode {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
+        physicsBody = SKPhysicsBody(texture: texture!, size: size)
+        physicsBody?.categoryBitMask = SHIP_BITMASK
+        physicsBody?.collisionBitMask = BLANK_BITMASK
+        physicsBody?.contactTestBitMask = METEOR_BITMASK
+        
         health                  = 100
         level                   = 1
         shipColor               = SKColor.clearColor()
         ghostShip               = SKSpriteNode(texture: SKTexture(imageNamed:"Spaceship"), color: SKColor.clearColor(), size: CGSizeMake(100, 100))
         ghostShip?.position.x   = (GameScene.getInstance()?.size.width)!
+        ghostShip?.physicsBody = SKPhysicsBody(texture: texture!, size: size)
+        physicsBody?.categoryBitMask = SHIP_BITMASK
+        physicsBody?.collisionBitMask = BLANK_BITMASK
+        physicsBody?.contactTestBitMask = METEOR_BITMASK
         self.addChild(ghostShip!)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func shoot() -> Projectile{
+        let projectile = Projectile(texture: SKTexture(imageNamed: "proj"), color: SKColor.clearColor(), size: CGSizeMake(15, 15))
+        let origin = self.convertPoint(CGPointMake(0, 50), toNode: self.parent!)
+        self.parent!.addChild(projectile)
+        projectile.position = origin
+        return projectile
     }
 
     static func getInstance() -> SpaceShip? {

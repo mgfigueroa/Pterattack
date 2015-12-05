@@ -14,16 +14,19 @@ class Projectile : SKSpriteNode {
     
     var velocity    = -1
     var strength    = -1
-    var projColor   = SKColor.clearColor()
     
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        velocity    = 100
-        strength    = 50
-        projColor   = SKColor.redColor()
+        physicsBody = SKPhysicsBody(texture: texture!, size: size)
+        physicsBody?.categoryBitMask = PROJECTILE_BITMASK
+        physicsBody?.collisionBitMask = BLANK_BITMASK
+        physicsBody?.contactTestBitMask = METEOR_BITMASK
         
+        velocity    = 5
+        strength    = 50
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
