@@ -44,3 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension _ArrayType where Generator.Element : Equatable{
+    mutating func remove(object : Self.Generator.Element) {
+        while let index = self.indexOf(object){
+            self.removeAtIndex(index)
+        }
+    }
+}

@@ -10,18 +10,17 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-//    static var frameSize : CGSize?
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-//        frameSize = self.view.frame.size
         
         if let scene = GameScene.getInstance(self.view.bounds.size) {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
+            skView.frameInterval = 2
+            skView.showsPhysics = true
             skView.showsNodeCount = true
-            skView.frameInterval = 3
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             
@@ -48,3 +47,5 @@ class GameViewController: UIViewController {
         return true
     }
 }
+
+
