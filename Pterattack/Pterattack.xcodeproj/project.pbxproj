@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0AA36B1C12B61600FBECB9 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AA36A1C12B61600FBECB9 /* Boss.swift */; settings = {ASSET_TAGS = (); }; };
+		4C0AA36D1C12B61C00FBECB9 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */; settings = {ASSET_TAGS = (); }; };
+		4C0AA36F1C12B62000FBECB9 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AA36E1C12B62000FBECB9 /* Projectile.swift */; settings = {ASSET_TAGS = (); }; };
+		4C0AA3721C12B6DB00FBECB9 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AA3711C12B6DB00FBECB9 /* Level.swift */; settings = {ASSET_TAGS = (); }; };
 		4C4558261C1290B50059AA42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4558251C1290B50059AA42 /* AppDelegate.swift */; };
 		4C4558281C1290B50059AA42 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558271C1290B50059AA42 /* GameScene.sks */; };
 		4C45582A1C1290B50059AA42 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4558291C1290B50059AA42 /* GameScene.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0AA36A1C12B61600FBECB9 /* Boss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
+		4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
+		4C0AA36E1C12B62000FBECB9 /* Projectile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
+		4C0AA3711C12B6DB00FBECB9 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		4C4558221C1290B50059AA42 /* Pterattack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pterattack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4558251C1290B50059AA42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C4558271C1290B50059AA42 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -41,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0AA3701C12B63800FBECB9 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				4C45583B1C1291870059AA42 /* Spaceship.swift */,
+				4C0AA36E1C12B62000FBECB9 /* Projectile.swift */,
+				4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */,
+				4C0AA36A1C12B61600FBECB9 /* Boss.swift */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		4C4558191C1290B50059AA42 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +79,12 @@
 		4C4558241C1290B50059AA42 /* Pterattack */ = {
 			isa = PBXGroup;
 			children = (
+				4C0AA3701C12B63800FBECB9 /* Sprites */,
 				4C4558251C1290B50059AA42 /* AppDelegate.swift */,
 				4C4558271C1290B50059AA42 /* GameScene.sks */,
 				4C4558291C1290B50059AA42 /* GameScene.swift */,
 				4C45582B1C1290B50059AA42 /* GameViewController.swift */,
-				4C45583B1C1291870059AA42 /* Spaceship.swift */,
+				4C0AA3711C12B6DB00FBECB9 /* Level.swift */,
 				4C45582D1C1290B50059AA42 /* Main.storyboard */,
 				4C4558301C1290B50059AA42 /* Assets.xcassets */,
 				4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */,
@@ -147,7 +167,11 @@
 				4C45582A1C1290B50059AA42 /* GameScene.swift in Sources */,
 				4C45582C1C1290B50059AA42 /* GameViewController.swift in Sources */,
 				4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */,
+				4C0AA36B1C12B61600FBECB9 /* Boss.swift in Sources */,
+				4C0AA36F1C12B62000FBECB9 /* Projectile.swift in Sources */,
+				4C0AA3721C12B6DB00FBECB9 /* Level.swift in Sources */,
 				4C4558261C1290B50059AA42 /* AppDelegate.swift in Sources */,
+				4C0AA36D1C12B61C00FBECB9 /* Meteor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
