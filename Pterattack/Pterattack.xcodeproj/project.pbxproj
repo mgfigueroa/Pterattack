@@ -14,6 +14,7 @@
 		4C45582F1C1290B50059AA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C45582D1C1290B50059AA42 /* Main.storyboard */; };
 		4C4558311C1290B50059AA42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558301C1290B50059AA42 /* Assets.xcassets */; };
 		4C4558341C1290B50059AA42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */; };
+		4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45583B1C1291870059AA42 /* Spaceship.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4C4558301C1290B50059AA42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C4558331C1290B50059AA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C4558351C1290B60059AA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C45583B1C1291870059AA42 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4C4558271C1290B50059AA42 /* GameScene.sks */,
 				4C4558291C1290B50059AA42 /* GameScene.swift */,
 				4C45582B1C1290B50059AA42 /* GameViewController.swift */,
+				4C45583B1C1291870059AA42 /* Spaceship.swift */,
 				4C45582D1C1290B50059AA42 /* Main.storyboard */,
 				4C4558301C1290B50059AA42 /* Assets.xcassets */,
 				4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				4C45582A1C1290B50059AA42 /* GameScene.swift in Sources */,
 				4C45582C1C1290B50059AA42 /* GameViewController.swift in Sources */,
+				4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */,
 				4C4558261C1290B50059AA42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
