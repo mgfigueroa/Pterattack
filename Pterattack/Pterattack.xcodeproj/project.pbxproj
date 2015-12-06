@@ -21,8 +21,9 @@
 		4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45583B1C1291870059AA42 /* Spaceship.swift */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3101C1389EF00996832 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30E1C1389EF00996832 /* Fire.sks */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3111C1389EF00996832 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30F1C1389EF00996832 /* spark.png */; settings = {ASSET_TAGS = (); }; };
-		4CD4C3151C13BC3500996832 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3141C13BC3500996832 /* Upgrades.swift */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3161C13BEAF00996832 /* Upgrade.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C31A1C13C7D600996832 /* Fireball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3191C13C7D600996832 /* Fireball.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C31C1C13CC5B00996832 /* Laser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C31B1C13CC5B00996832 /* Laser.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +43,9 @@
 		4C45583B1C1291870059AA42 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		4CD4C30E1C1389EF00996832 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		4CD4C30F1C1389EF00996832 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		4CD4C3141C13BC3500996832 /* Upgrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
 		4CD4C3161C13BEAF00996832 /* Upgrade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
+		4CD4C3191C13C7D600996832 /* Fireball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fireball.swift; sourceTree = "<group>"; };
+		4CD4C31B1C13CC5B00996832 /* Laser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Laser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +62,12 @@
 		4C0AA3701C12B63800FBECB9 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				4CD4C3181C13C7C400996832 /* Upgrades */,
 				4C45583B1C1291870059AA42 /* Spaceship.swift */,
 				4C0AA36E1C12B62000FBECB9 /* Projectile.swift */,
 				4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */,
 				4C0AA36A1C12B61600FBECB9 /* Boss.swift */,
-				4CD4C3141C13BC3500996832 /* Upgrades.swift */,
+				4CD4C3161C13BEAF00996832 /* Upgrade.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -94,7 +97,6 @@
 				4C4558291C1290B50059AA42 /* GameScene.swift */,
 				4C45582B1C1290B50059AA42 /* GameViewController.swift */,
 				4C0AA3711C12B6DB00FBECB9 /* Level.swift */,
-				4CD4C3161C13BEAF00996832 /* Upgrade.swift */,
 				4C4558271C1290B50059AA42 /* GameScene.sks */,
 				4C45582D1C1290B50059AA42 /* Main.storyboard */,
 				4C4558301C1290B50059AA42 /* Assets.xcassets */,
@@ -119,6 +121,15 @@
 				4CD4C30F1C1389EF00996832 /* spark.png */,
 			);
 			name = Fire;
+			sourceTree = "<group>";
+		};
+		4CD4C3181C13C7C400996832 /* Upgrades */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4C3191C13C7D600996832 /* Fireball.swift */,
+				4CD4C31B1C13CC5B00996832 /* Laser.swift */,
+			);
+			name = Upgrades;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +207,8 @@
 			files = (
 				4C45582A1C1290B50059AA42 /* GameScene.swift in Sources */,
 				4C45582C1C1290B50059AA42 /* GameViewController.swift in Sources */,
-				4CD4C3151C13BC3500996832 /* Upgrades.swift in Sources */,
+				4CD4C31A1C13C7D600996832 /* Fireball.swift in Sources */,
+				4CD4C31C1C13CC5B00996832 /* Laser.swift in Sources */,
 				4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */,
 				4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */,
 				4C0AA36B1C12B61600FBECB9 /* Boss.swift in Sources */,

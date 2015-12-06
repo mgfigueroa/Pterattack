@@ -9,10 +9,11 @@
 import SpriteKit
 import CoreMotion
 
-let PROJECTILE_BITMASK : UInt32 = 0b100
-let METEOR_BITMASK : UInt32     = 0b010
-let SHIP_BITMASK : UInt32       = 0b001
-let BLANK_BITMASK : UInt32      = 0b000
+let UPGRADE_BITMASK : UInt32    = 0b1000
+let PROJECTILE_BITMASK : UInt32 = 0b0100
+let METEOR_BITMASK : UInt32     = 0b0010
+let SHIP_BITMASK : UInt32       = 0b0001
+let BLANK_BITMASK : UInt32      = 0b0000
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -26,7 +27,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var level : Level?
     private var meteors = [Meteor]()
     private var projectiles = [Projectile]()
+    private var upgrades = [Upgrade]()
     private var meteorsCreated = 0
+    
+    
     
     override func didMoveToView(view: SKView) {
         if motionManager.accelerometerAvailable == true {
@@ -47,8 +51,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         updateShipPosition()
         createMeteors()
+        createUpgrades()
         updateMeteors()
         updateProjectiles()
+        updateUpgrades()
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -115,6 +122,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     meteorsCreated++
                     print(meteorsCreated)
             }
+        }
+    }
+    
+    private func updateUpgrades() {
+        for upgrade in upgrades {
+            upgrade.position.y -= CGFloat(upgrade.velocity)
+        }
+        //Filters offscreen objects
+        for upgrade in upgrades.filter({ $0.position.y + $0.size.height / 2 < 0 }) {
+            upgrades.remove(upgrade)
+            upgrade.removeFromParent()
+        }
+    }
+    
+    private func createUpgrades() {
+        if let upgrade = level?.spawnUpgrade() {
+            addChild(upgrade)
+            upgrades.append(upgrade)
         }
     }
     

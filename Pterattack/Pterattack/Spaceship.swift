@@ -20,6 +20,7 @@ class SpaceShip : SKSpriteNode {
     private var _health : Int = -1
     private var _level : Int = -1
     private var _status : SHIP_STATUS = SHIP_STATUS.DEFAULT
+    private var _projectile : Upgrade?
     
     var health : Int {
         get {
