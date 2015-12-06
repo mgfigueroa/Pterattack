@@ -16,11 +16,28 @@ enum SHIP_STATUS {
 }
 
 class SpaceShip : SKSpriteNode {
-    static var instance : SpaceShip?
-    var health          = -1
-    var level           = -1
+    private static var instance : SpaceShip?
+    private var _health : Int = -1
+    private var _level : Int = -1
+    private var _status : SHIP_STATUS = SHIP_STATUS.DEFAULT
+    
+    var health : Int {
+        get {
+            return _health
+        }
+    }
+    var level : Int {
+        get {
+            return _level
+        }
+    }
+    var status : SHIP_STATUS {
+        get {
+            return _status
+        }
+    }
+    
     var ghostShip : SKSpriteNode?
-    var status : SHIP_STATUS = SHIP_STATUS.DEFAULT
     
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
@@ -31,9 +48,9 @@ class SpaceShip : SKSpriteNode {
         physicsBody?.categoryBitMask = SHIP_BITMASK
         physicsBody?.collisionBitMask = BLANK_BITMASK
         physicsBody?.contactTestBitMask = METEOR_BITMASK
-        health                  = 100
-        level                   = 1
-        status                  = SHIP_STATUS.ALIVE
+        self._health                  = 100
+        self._level                   = 1
+        self._status                  = SHIP_STATUS.ALIVE
         
         //Ghost Ship initialization
         ghostShip               = SKSpriteNode(texture: SKTexture(imageNamed:"Spaceship"), color: color, size: CGSizeMake(50, 100))
@@ -62,9 +79,9 @@ class SpaceShip : SKSpriteNode {
     }
     
     func damage(damageValue: Int) {
-        health -= damageValue
-        if(health <= 0) {
-            status = SHIP_STATUS.DEAD
+        self._health -= damageValue
+        if(self._health <= 0) {
+            self._status = SHIP_STATUS.DEAD
             //Requires cast because getInstance() -> SKScene?
             (GameScene.getInstance() as! GameScene).shipDeath()
         }

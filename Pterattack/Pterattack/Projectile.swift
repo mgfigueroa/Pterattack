@@ -12,9 +12,19 @@ import SpriteKit
 
 class Projectile : SKSpriteNode {
     
-    var velocity    = -1
-    var strength    = -1
+    private var _velocity : Int    = -1
+    private var _strength : Int    = -1
     
+    var velocity : Int {
+        get {
+            return _velocity
+        }
+    }
+    var strength : Int {
+        get {
+            return _strength
+        }
+    }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -23,8 +33,8 @@ class Projectile : SKSpriteNode {
         physicsBody?.collisionBitMask = BLANK_BITMASK
         physicsBody?.contactTestBitMask = METEOR_BITMASK
         
-        velocity    = 5
-        strength    = 50
+        self._velocity    = 5
+        self._strength    = 50
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,10 +11,26 @@ import SpriteKit
 
 
 class Meteor : SKSpriteNode {
+    private var _velocity : Int = -1
+    private var _health : Int = -1
+    private var _damage : Int = -1
     
-    var velocity = -1
-    var health   = -1
-    var damage   = 100
+    
+    var velocity : Int {
+        get {
+            return _velocity
+        }
+    }
+    var health : Int {
+        get {
+            return _health
+        }
+    }
+    var damage : Int {
+        get {
+            return _damage
+        }
+    }
     
     init(texture: SKTexture?, color: UIColor, size: CGSize, health: Int) {
         super.init(texture: texture, color: color, size: size)
@@ -24,9 +40,9 @@ class Meteor : SKSpriteNode {
         physicsBody?.categoryBitMask = METEOR_BITMASK
         physicsBody?.collisionBitMask = BLANK_BITMASK
         physicsBody?.contactTestBitMask = SHIP_BITMASK | PROJECTILE_BITMASK
-        self.damage      = 100
-        self.velocity    = 2
-        self.health      = health
+        self._damage      = 100
+        self._velocity    = 2
+        self._health      = health
         
         
     }
