@@ -24,6 +24,8 @@
 		4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3161C13BEAF00996832 /* Upgrade.swift */; settings = {ASSET_TAGS = (); }; };
 		4CD4C31A1C13C7D600996832 /* Fireball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3191C13C7D600996832 /* Fireball.swift */; settings = {ASSET_TAGS = (); }; };
 		4CD4C31C1C13CC5B00996832 /* Laser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C31B1C13CC5B00996832 /* Laser.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3201C13EF9000996832 /* pFireball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C31F1C13EF9000996832 /* pFireball.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3221C13EF9800996832 /* pLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3211C13EF9800996832 /* pLaser.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4CD4C3161C13BEAF00996832 /* Upgrade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 		4CD4C3191C13C7D600996832 /* Fireball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fireball.swift; sourceTree = "<group>"; };
 		4CD4C31B1C13CC5B00996832 /* Laser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Laser.swift; sourceTree = "<group>"; };
+		4CD4C31F1C13EF9000996832 /* pFireball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pFireball.swift; sourceTree = "<group>"; };
+		4CD4C3211C13EF9800996832 /* pLaser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pLaser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +66,13 @@
 		4C0AA3701C12B63800FBECB9 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				4C0AA36E1C12B62000FBECB9 /* Projectile.swift */,
+				4CD4C31E1C13ECC700996832 /* Projectiles */,
+				4CD4C3161C13BEAF00996832 /* Upgrade.swift */,
 				4CD4C3181C13C7C400996832 /* Upgrades */,
 				4C45583B1C1291870059AA42 /* Spaceship.swift */,
-				4C0AA36E1C12B62000FBECB9 /* Projectile.swift */,
 				4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */,
 				4C0AA36A1C12B61600FBECB9 /* Boss.swift */,
-				4CD4C3161C13BEAF00996832 /* Upgrade.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -130,6 +135,15 @@
 				4CD4C31B1C13CC5B00996832 /* Laser.swift */,
 			);
 			name = Upgrades;
+			sourceTree = "<group>";
+		};
+		4CD4C31E1C13ECC700996832 /* Projectiles */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4C31F1C13EF9000996832 /* pFireball.swift */,
+				4CD4C3211C13EF9800996832 /* pLaser.swift */,
+			);
+			name = Projectiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +230,8 @@
 				4C0AA3721C12B6DB00FBECB9 /* Level.swift in Sources */,
 				4C4558261C1290B50059AA42 /* AppDelegate.swift in Sources */,
 				4C0AA36D1C12B61C00FBECB9 /* Meteor.swift in Sources */,
+				4CD4C3201C13EF9000996832 /* pFireball.swift in Sources */,
+				4CD4C3221C13EF9800996832 /* pLaser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

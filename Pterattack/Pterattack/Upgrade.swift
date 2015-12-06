@@ -31,6 +31,10 @@ class Upgrade: SKSpriteNode {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
+        physicsBody = SKPhysicsBody(texture: texture!, size: size)
+        physicsBody?.categoryBitMask = UPGRADE_BITMASK
+        physicsBody?.collisionBitMask = BLANK_BITMASK
+        physicsBody?.contactTestBitMask = SHIP_BITMASK
         position.x  = CGFloat(arc4random_uniform(UInt32(GameScene.getInstance()!.size.width)))
         position.y  = size.height/2 + (GameScene.getInstance()?.size.height)!
         self._velocity = 3

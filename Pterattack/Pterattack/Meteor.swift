@@ -41,8 +41,9 @@ class Meteor : SKSpriteNode {
         physicsBody?.collisionBitMask = BLANK_BITMASK
         physicsBody?.contactTestBitMask = SHIP_BITMASK | PROJECTILE_BITMASK
         self._damage      = 100
-        self._velocity    = 2
+        self._velocity    = 4
         self._health      = health
+        self.name = NSStringFromClass(Meteor)
         
         
     }

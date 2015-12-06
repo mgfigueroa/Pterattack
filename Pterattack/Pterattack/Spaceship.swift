@@ -17,10 +17,10 @@ enum SHIP_STATUS {
 
 class SpaceShip : SKSpriteNode {
     private static var instance : SpaceShip?
-    private var _health : Int = -1
-    private var _level : Int = -1
-    private var _status : SHIP_STATUS = SHIP_STATUS.DEFAULT
-    private var _projectile : Upgrade?
+    private var _health : Int               = -1
+    private var _level : Int                = -1
+    private var _status : SHIP_STATUS       = SHIP_STATUS.DEFAULT
+    private var _projectile : Projectile    = pLaser()
     
     var health : Int {
         get {
@@ -68,15 +68,22 @@ class SpaceShip : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func shoot() -> Projectile{
-        let projectile = Projectile(texture: SKTexture(imageNamed: "proj"), color: SKColor.clearColor(), size: CGSizeMake(15, 15))
+    func shoot() -> Projectile {
+//        let projectile = Projectile(texture: SKTexture(imageNamed: "proj"), color: SKColor.clearColor(), size: CGSizeMake(15, 15))
+        var projectile : Projectile?
+        if _projectile is pLaser {
+            projectile = pLaser()
+        }
+        else if _projectile is pFireball {
+            projectile = pFireball()
+        }
         
         let origin = self.position.x > 0 ?
             self.convertPoint(CGPointMake(0, 50), toNode: self.parent!) :
             ghostShip!.convertPoint(CGPointMake(0, 50), toNode:self.parent!)
-        self.parent!.addChild(projectile)
-        projectile.position = origin
-        return projectile
+        self.parent!.addChild(projectile!)
+        projectile!.position = origin
+        return projectile!
     }
     
     func damage(damageValue: Int) {
@@ -85,6 +92,22 @@ class SpaceShip : SKSpriteNode {
             self._status = SHIP_STATUS.DEAD
             //Requires cast because getInstance() -> SKScene?
             (GameScene.getInstance() as! GameScene).shipDeath()
+        }
+    }
+    
+    func upgrade(type: Upgrade) {
+        print(type.name)
+        if _projectile.name == type.name {
+            print("UPGRADING", _projectile.name)
+            _projectile.levelUp()
+        }
+        else if type.name == NSStringFromClass(Fireball) {
+            print("GOT FIREBALL")
+            _projectile = pFireball()
+        }
+        else if type.name == NSStringFromClass(Laser) {
+            print("GOT LASER")
+            _projectile = pLaser()
         }
     }
 

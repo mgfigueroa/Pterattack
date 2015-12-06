@@ -78,12 +78,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if((firstBody.categoryBitMask & SHIP_BITMASK > 0) && (secondBody.categoryBitMask & METEOR_BITMASK > 0)) {
 //            ship!.damage((secondBody.node as! Meteor).damage)
         }
-        
-        if((firstBody.categoryBitMask & METEOR_BITMASK > 0) && (secondBody.categoryBitMask & PROJECTILE_BITMASK > 0)) {
+        else if((firstBody.categoryBitMask & METEOR_BITMASK > 0) && (secondBody.categoryBitMask & PROJECTILE_BITMASK > 0)) {
             firstBody.node?.removeFromParent()
             secondBody.node?.removeFromParent()
-            
         }
+        else if(secondBody.node != nil && (firstBody.categoryBitMask & SHIP_BITMASK > 0) && (secondBody.categoryBitMask & UPGRADE_BITMASK > 0)) {
+            ship?.upgrade(secondBody.node as! Upgrade)
+            upgrades.remove(secondBody.node as! Upgrade)
+            secondBody.node?.removeFromParent()
+        }
+        
     }
     
     private func updateProjectiles() {
@@ -120,7 +124,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     addChild(meteor)
                     meteors.append(meteor)
                     meteorsCreated++
-                    print(meteorsCreated)
             }
         }
     }
