@@ -2,7 +2,7 @@
 //  Boss.swift
 //  Pterattack
 //
-//  Created by epochchhcchchhhh on 12/4/15.
+//  Created by Clement on 12/4/15.
 //
 //
 

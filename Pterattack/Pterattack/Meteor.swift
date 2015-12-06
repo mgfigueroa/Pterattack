@@ -14,10 +14,9 @@ class Meteor : SKSpriteNode {
     
     var velocity = -1
     var health   = -1
-    var metColor = SKColor.clearColor()
+    var damage   = 100
     
-    
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    init(texture: SKTexture?, color: UIColor, size: CGSize, health: Int) {
         super.init(texture: texture, color: color, size: size)
         position.x  = CGFloat(arc4random_uniform(UInt32(GameScene.getInstance()!.size.width)))
         position.y  = size.height/2 + (GameScene.getInstance()?.size.height)!
@@ -25,10 +24,9 @@ class Meteor : SKSpriteNode {
         physicsBody?.categoryBitMask = METEOR_BITMASK
         physicsBody?.collisionBitMask = BLANK_BITMASK
         physicsBody?.contactTestBitMask = SHIP_BITMASK | PROJECTILE_BITMASK
-        
-        velocity    = 2
-        health      = 100
-        metColor    = color
+        self.damage      = 100
+        self.velocity    = 2
+        self.health      = health
         
         
     }

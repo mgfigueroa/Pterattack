@@ -19,13 +19,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let THRESHOLD   = 0.05
     let VELOCITY    = CGFloat(5.0)
     
-    static var instance : SKScene?
-    var motionManager = CMMotionManager()
-    var tilt = 0.0
-    var ship : SpaceShip?
-    var level : Level?
-    var meteors = [Meteor]()
-    var projectiles = [Projectile]()
+    private static var instance : SKScene?
+    private var motionManager = CMMotionManager()
+    private var tilt = 0.0
+    private var ship : SpaceShip?
+    private var level : Level?
+    private var meteors = [Meteor]()
+    private var projectiles = [Projectile]()
+    private var meteorsCreated = 0
     
     override func didMoveToView(view: SKView) {
         if motionManager.accelerometerAvailable == true {
@@ -57,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         var firstBody : SKPhysicsBody
         var secondBody : SKPhysicsBody
+        
         if(contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -65,13 +67,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-//        print(firstBody.categoryBitMask, secondBody.categoryBitMask)
+        
         if((firstBody.categoryBitMask & SHIP_BITMASK > 0) && (secondBody.categoryBitMask & METEOR_BITMASK > 0)) {
-            print("METEOR HIT SHIP")
+//            ship!.damage((secondBody.node as! Meteor).damage)
         }
+        
         if((firstBody.categoryBitMask & METEOR_BITMASK > 0) && (secondBody.categoryBitMask & PROJECTILE_BITMASK > 0)) {
             firstBody.node?.removeFromParent()
             secondBody.node?.removeFromParent()
+            
         }
     }
     
@@ -87,6 +91,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func updateMeteors() {
+        if meteorsCreated >= level?.numberOfMeteors && meteors.isEmpty {
+            level?.levelUp()
+            meteorsCreated = 0
+            print("LEVEL UP BYTCHES")
+        }
+        
         for meteor in meteors {
             meteor.position.y -= CGFloat(meteor.velocity)
         }
@@ -98,9 +108,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func createMeteors() {
-        if let meteor = level?.spawnMeteor() {
-            addChild(meteor)
-            meteors.append(meteor)
+        if meteorsCreated < level?.numberOfMeteors {
+            if let meteor = level?.spawnMeteor() {
+                    addChild(meteor)
+                    meteors.append(meteor)
+                    meteorsCreated++
+                    print(meteorsCreated)
+            }
         }
     }
     
@@ -117,6 +131,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func shipDeath() {
+        ship!.removeFromParent()
+    }
+    
     static func getInstance() -> SKScene? {
         if instance == nil {
             instance = GameScene(fileNamed:"GameScene")
@@ -124,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return instance!
         
     }
+    
     static func getInstance(size: CGSize) -> SKScene? {
         if instance == nil {
             instance = GameScene(size: size)

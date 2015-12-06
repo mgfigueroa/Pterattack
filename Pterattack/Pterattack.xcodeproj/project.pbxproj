@@ -19,6 +19,10 @@
 		4C4558311C1290B50059AA42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558301C1290B50059AA42 /* Assets.xcassets */; };
 		4C4558341C1290B50059AA42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */; };
 		4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45583B1C1291870059AA42 /* Spaceship.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3101C1389EF00996832 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30E1C1389EF00996832 /* Fire.sks */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3111C1389EF00996832 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30F1C1389EF00996832 /* spark.png */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3151C13BC3500996832 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3141C13BC3500996832 /* Upgrades.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3161C13BEAF00996832 /* Upgrade.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		4C4558331C1290B50059AA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C4558351C1290B60059AA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C45583B1C1291870059AA42 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		4CD4C30E1C1389EF00996832 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		4CD4C30F1C1389EF00996832 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		4CD4C3141C13BC3500996832 /* Upgrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
+		4CD4C3161C13BEAF00996832 /* Upgrade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 				4C0AA36E1C12B62000FBECB9 /* Projectile.swift */,
 				4C0AA36C1C12B61C00FBECB9 /* Meteor.swift */,
 				4C0AA36A1C12B61600FBECB9 /* Boss.swift */,
+				4CD4C3141C13BC3500996832 /* Upgrades.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -79,18 +88,37 @@
 		4C4558241C1290B50059AA42 /* Pterattack */ = {
 			isa = PBXGroup;
 			children = (
+				4CD4C3121C1389F700996832 /* Effects */,
 				4C0AA3701C12B63800FBECB9 /* Sprites */,
 				4C4558251C1290B50059AA42 /* AppDelegate.swift */,
-				4C4558271C1290B50059AA42 /* GameScene.sks */,
 				4C4558291C1290B50059AA42 /* GameScene.swift */,
 				4C45582B1C1290B50059AA42 /* GameViewController.swift */,
 				4C0AA3711C12B6DB00FBECB9 /* Level.swift */,
+				4CD4C3161C13BEAF00996832 /* Upgrade.swift */,
+				4C4558271C1290B50059AA42 /* GameScene.sks */,
 				4C45582D1C1290B50059AA42 /* Main.storyboard */,
 				4C4558301C1290B50059AA42 /* Assets.xcassets */,
 				4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */,
 				4C4558351C1290B60059AA42 /* Info.plist */,
 			);
 			path = Pterattack;
+			sourceTree = "<group>";
+		};
+		4CD4C3121C1389F700996832 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4C3131C1389FF00996832 /* Fire */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		4CD4C3131C1389FF00996832 /* Fire */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4C30E1C1389EF00996832 /* Fire.sks */,
+				4CD4C30F1C1389EF00996832 /* spark.png */,
+			);
+			name = Fire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +179,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C4558281C1290B50059AA42 /* GameScene.sks in Resources */,
+				4CD4C3111C1389EF00996832 /* spark.png in Resources */,
 				4C4558341C1290B50059AA42 /* LaunchScreen.storyboard in Resources */,
 				4C4558311C1290B50059AA42 /* Assets.xcassets in Resources */,
+				4CD4C3101C1389EF00996832 /* Fire.sks in Resources */,
 				4C45582F1C1290B50059AA42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,7 +196,9 @@
 			files = (
 				4C45582A1C1290B50059AA42 /* GameScene.swift in Sources */,
 				4C45582C1C1290B50059AA42 /* GameViewController.swift in Sources */,
+				4CD4C3151C13BC3500996832 /* Upgrades.swift in Sources */,
 				4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */,
+				4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */,
 				4C0AA36B1C12B61600FBECB9 /* Boss.swift in Sources */,
 				4C0AA36F1C12B62000FBECB9 /* Projectile.swift in Sources */,
 				4C0AA3721C12B6DB00FBECB9 /* Level.swift in Sources */,

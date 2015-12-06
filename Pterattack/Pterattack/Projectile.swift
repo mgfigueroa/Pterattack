@@ -2,7 +2,7 @@
 //  Projectile.swift
 //  Pterattack
 //
-//  Created by epochchhcchchhhh on 12/4/15.
+//  Created by Clement on 12/4/15.
 //
 //
 
@@ -26,7 +26,6 @@ class Projectile : SKSpriteNode {
         velocity    = 5
         strength    = 50
     }
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

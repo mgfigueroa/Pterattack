@@ -11,27 +11,33 @@ import SpriteKit
 
 
 class Level {
-    var gameLevel : Int
+    
+    private var level : Int = 0
     private static var SPAWN_RATES: [Int : Float] = [1 : 0.01, 2 : 0.02, 3 : 0.03]
+    private static var METEORS_PER_LEVEL: [Int: Int] = [1 : 20, 2 : 30, 3 : 40]
+    
+    var currentLevel : Int {
+        get {
+            return level
+        }
+    }
+    var numberOfMeteors : Int {
+        get {
+            return Level.METEORS_PER_LEVEL[level]!
+        }
+    }
     
     init() {
-        gameLevel = 1
+        level = 1
     }
     
     func levelUp() {
-        gameLevel++
+        level++
     }
     
     func spawnMeteor() -> Meteor?{
-        let meteor : Meteor? = Float(arc4random_uniform(100)) < Level.SPAWN_RATES[self.gameLevel]! * 100.0 ? Meteor(texture: SKTexture(imageNamed: "Meteor"), color: SKColor.clearColor(), size: CGSizeMake(25, 25)) : nil
+        let meteor : Meteor? = Float(arc4random_uniform(100)) < Level.SPAWN_RATES[level]! * 100.0 ? Meteor(texture: SKTexture(imageNamed: "Meteor"), color: SKColor.clearColor(), size: CGSizeMake(25, 25), health: 100) : nil
         return meteor
     }
-
     
-    
-//    enum SPAWN_RATES : Float{
-//        case LEVEL_1 = .01
-//        case LEVEL_2 = .02
-//        case LEVEL_3 = .03
-//    }
 }
