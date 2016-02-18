@@ -46,6 +46,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         level = Level()
         self.addChild(ship!)
         
+        let healthBar = HealthBar()
+        healthBar.position = CGPointMake(size.width/2, size.height - 20)
+        healthBar.setProgress(0.20)
+        addChild(healthBar)
+        
         let starField = SKEmitterNode(fileNamed: "StarField")
         starField!.position = CGPointMake(size.width/2,size.height)
         starField!.zPosition = -10
