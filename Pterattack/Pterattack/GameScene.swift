@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let starField = SKEmitterNode(fileNamed: "StarField")
         starField!.position = CGPointMake(size.width/2,size.height)
-        starField!.zPosition = -1
+        starField!.zPosition = -10
         starField!.particlePositionRange = CGVectorMake(size.width, 0)
         addChild(starField!)
         

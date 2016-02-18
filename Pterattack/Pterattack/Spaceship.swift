@@ -57,6 +57,10 @@ class SpaceShip : SKSpriteNode {
         mainShip?.physicsBody?.categoryBitMask = SHIP_BITMASK
         mainShip?.physicsBody?.collisionBitMask = BLANK_BITMASK
         mainShip?.physicsBody?.contactTestBitMask = METEOR_BITMASK
+        let shipExhaust = SKEmitterNode(fileNamed: "ShipExhaust")
+        shipExhaust!.position = CGPointMake(0, 0)
+        shipExhaust!.zPosition = -1
+        mainShip?.addChild(shipExhaust!)
         self.addChild(mainShip!)
         
         //Ghost Ship initialization
@@ -66,6 +70,10 @@ class SpaceShip : SKSpriteNode {
         ghostShip?.physicsBody?.categoryBitMask = SHIP_BITMASK
         ghostShip?.physicsBody?.collisionBitMask = BLANK_BITMASK
         ghostShip?.physicsBody?.contactTestBitMask = METEOR_BITMASK
+        let shipExhaust2 = SKEmitterNode(fileNamed: "ShipExhaust")
+        shipExhaust2!.position = CGPointMake(0, 0)
+        shipExhaust2!.zPosition = -1
+        ghostShip!.addChild(shipExhaust2!)
         self.addChild(ghostShip!)
     }
     
