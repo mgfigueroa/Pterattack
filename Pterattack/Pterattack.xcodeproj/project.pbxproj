@@ -19,6 +19,8 @@
 		4C4558311C1290B50059AA42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558301C1290B50059AA42 /* Assets.xcassets */; };
 		4C4558341C1290B50059AA42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4558321C1290B50059AA42 /* LaunchScreen.storyboard */; };
 		4C45583C1C1291870059AA42 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C45583B1C1291870059AA42 /* Spaceship.swift */; settings = {ASSET_TAGS = (); }; };
+		4C5E450D1C75A9F8007D5112 /* StarField.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4C5E450B1C75A9F8007D5112 /* StarField.sks */; settings = {ASSET_TAGS = (); }; };
+		4C5E450E1C75A9F8007D5112 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5E450C1C75A9F8007D5112 /* spark.png */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3101C1389EF00996832 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30E1C1389EF00996832 /* Fire.sks */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3111C1389EF00996832 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4C30F1C1389EF00996832 /* spark.png */; settings = {ASSET_TAGS = (); }; };
 		4CD4C3171C13BEAF00996832 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4C3161C13BEAF00996832 /* Upgrade.swift */; settings = {ASSET_TAGS = (); }; };
@@ -43,6 +45,8 @@
 		4C4558331C1290B50059AA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C4558351C1290B60059AA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C45583B1C1291870059AA42 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		4C5E450B1C75A9F8007D5112 /* StarField.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StarField.sks; sourceTree = "<group>"; };
+		4C5E450C1C75A9F8007D5112 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		4CD4C30E1C1389EF00996832 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		4CD4C30F1C1389EF00996832 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		4CD4C3161C13BEAF00996832 /* Upgrade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		4C4558191C1290B50059AA42 = {
 			isa = PBXGroup;
 			children = (
+				4C5E450B1C75A9F8007D5112 /* StarField.sks */,
+				4C5E450C1C75A9F8007D5112 /* spark.png */,
 				4C4558241C1290B50059AA42 /* Pterattack */,
 				4C4558231C1290B50059AA42 /* Products */,
 			);
@@ -207,6 +213,8 @@
 				4CD4C3111C1389EF00996832 /* spark.png in Resources */,
 				4C4558341C1290B50059AA42 /* LaunchScreen.storyboard in Resources */,
 				4C4558311C1290B50059AA42 /* Assets.xcassets in Resources */,
+				4C5E450D1C75A9F8007D5112 /* StarField.sks in Resources */,
+				4C5E450E1C75A9F8007D5112 /* spark.png in Resources */,
 				4CD4C3101C1389EF00996832 /* Fire.sks in Resources */,
 				4C45582F1C1290B50059AA42 /* Main.storyboard in Resources */,
 			);

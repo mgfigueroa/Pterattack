@@ -46,6 +46,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         level = Level()
         self.addChild(ship!)
         
+        let starField = SKEmitterNode(fileNamed: "StarField")
+        starField!.position = CGPointMake(size.width/2,size.height)
+        starField!.zPosition = -1
+        starField!.particlePositionRange = CGVectorMake(size.width, 0)
+        addChild(starField!)
+        
     }
     
 //    override func didEvaluateActions() {
