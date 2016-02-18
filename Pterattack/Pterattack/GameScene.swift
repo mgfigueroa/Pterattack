@@ -29,6 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var projectiles = [Projectile]()
     private var upgrades = [Upgrade]()
     private var meteorsCreated = 0
+    private var healthBar : HealthBar?
     
     
     
@@ -46,10 +47,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         level = Level()
         self.addChild(ship!)
         
-        let healthBar = HealthBar()
-        healthBar.position = CGPointMake(size.width/2, size.height - 20)
-        healthBar.setProgress(0.20)
-        addChild(healthBar)
+        healthBar = HealthBar()
+        healthBar!.position = CGPointMake(size.width/2, size.height - 20)
+        healthBar!.setProgress(1)
+        addChild(healthBar!)
         
         let starField = SKEmitterNode(fileNamed: "StarField")
         starField!.position = CGPointMake(size.width/2,size.height)
@@ -58,23 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(starField!)
         
     }
-    
-//    override func didEvaluateActions() {
-//        let dx = ship!.ghostShip!.position.x
-//        let dy = ship!.ghostShip!.position.y
-//        
-//        let childAngle = CGFloat(0)//atan2(dy, dx)
-//        //print(childAngle)
-//        let childRadius = sqrt(dx*dx+dy*dy)
-//        
-//        let angle = ship!.zRotation
-//        let angleOffset = -angle + childAngle
-//        let x = childRadius * cos(angleOffset)
-//        let y = childRadius * sin(angleOffset)
-//        ship!.ghostShip!.position = CGPointMake(x, y)
-//        ship!.ghostShip!.zRotation = -angle
-//        print(ship!.ghostShip!.zRotation)
-//    }
     
     override func update(currentTime: CFTimeInterval) {
         updateShipPosition()
@@ -104,7 +88,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if((firstBody.categoryBitMask & SHIP_BITMASK > 0) && (secondBody.categoryBitMask & METEOR_BITMASK > 0)) {
-//            ship!.damage((secondBody.node as! Meteor).damage)
+            if(firstBody.node == nil ||  secondBody.node == nil){
+                return
+            }
+            let damageFromMeteor = (secondBody.node as! Meteor).damage
+            meteors.remove(secondBody.node as! Meteor)
+            secondBody.node?.removeFromParent()
+            healthBar!.setProgress(CGFloat(ship!.health - damageFromMeteor) / CGFloat(ship!.maxHealth))
+            ship!.damage(damageFromMeteor)
         }
         else if((firstBody.categoryBitMask & METEOR_BITMASK > 0) && (secondBody.categoryBitMask & PROJECTILE_BITMASK > 0)) {
             firstBody.node?.removeFromParent()

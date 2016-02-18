@@ -17,11 +17,17 @@ enum SHIP_STATUS {
 
 class SpaceShip : SKSpriteNode {
     private static var instance : SpaceShip?
+    private var _maxHealth : Int     = -1
     private var _health : Int               = -1
     private var _level : Int                = -1
     private var _status : SHIP_STATUS       = SHIP_STATUS.DEFAULT
     private var _projectile : Projectile    = pLaser()
     
+    var maxHealth : Int {
+        get {
+            return _maxHealth
+        }
+    }
     var health : Int {
         get {
             return _health
@@ -47,6 +53,7 @@ class SpaceShip : SKSpriteNode {
         
         //Ship initialization
         self._health                  = 100
+        self._maxHealth               = self._health
         self._level                   = 1
         self._status                  = SHIP_STATUS.ALIVE
         
