@@ -39,28 +39,33 @@ class SpaceShip : SKSpriteNode {
     }
     
     var ghostShip : SKSpriteNode?
+    var mainShip  : SKSpriteNode?
     
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: nil, color: color, size: size)
         
         //Ship initialization
-        physicsBody = SKPhysicsBody(texture: texture!, size: size)
-        physicsBody?.categoryBitMask = SHIP_BITMASK
-        physicsBody?.collisionBitMask = BLANK_BITMASK
-        physicsBody?.contactTestBitMask = METEOR_BITMASK
         self._health                  = 100
         self._level                   = 1
         self._status                  = SHIP_STATUS.ALIVE
         
+        
+        //Main ship initialization
+        mainShip                = SKSpriteNode(texture: texture!, color: color, size: size)
+        mainShip?.physicsBody   = SKPhysicsBody(texture: texture!, size: size)
+        mainShip?.physicsBody?.categoryBitMask = SHIP_BITMASK
+        mainShip?.physicsBody?.collisionBitMask = BLANK_BITMASK
+        mainShip?.physicsBody?.contactTestBitMask = METEOR_BITMASK
+        self.addChild(mainShip!)
+        
         //Ghost Ship initialization
-        ghostShip               = SKSpriteNode(texture: SKTexture(imageNamed:"Spaceship"), color: color, size: CGSizeMake(50, 100))
+        ghostShip               = SKSpriteNode(texture: texture!, color: color, size: size)
         ghostShip?.position.x   = (GameScene.getInstance()?.size.width)!
-        ghostShip?.position.y   = 0
         ghostShip?.physicsBody = SKPhysicsBody(texture: texture!, size: size)
-        physicsBody?.categoryBitMask = SHIP_BITMASK
-        physicsBody?.collisionBitMask = BLANK_BITMASK
-        physicsBody?.contactTestBitMask = METEOR_BITMASK
+        ghostShip?.physicsBody?.categoryBitMask = SHIP_BITMASK
+        ghostShip?.physicsBody?.collisionBitMask = BLANK_BITMASK
+        ghostShip?.physicsBody?.contactTestBitMask = METEOR_BITMASK
         self.addChild(ghostShip!)
     }
     

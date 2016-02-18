@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.tilt = data!.acceleration.x
             })
         }
-        self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.blackColor()
         self.physicsWorld.contactDelegate = self;
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         ship = SpaceShip.getInstance()
@@ -47,6 +47,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ship!)
         
     }
+    
+//    override func didEvaluateActions() {
+//        let dx = ship!.ghostShip!.position.x
+//        let dy = ship!.ghostShip!.position.y
+//        
+//        let childAngle = CGFloat(0)//atan2(dy, dx)
+//        //print(childAngle)
+//        let childRadius = sqrt(dx*dx+dy*dy)
+//        
+//        let angle = ship!.zRotation
+//        let angleOffset = -angle + childAngle
+//        let x = childRadius * cos(angleOffset)
+//        let y = childRadius * sin(angleOffset)
+//        ship!.ghostShip!.position = CGPointMake(x, y)
+//        ship!.ghostShip!.zRotation = -angle
+//        print(ship!.ghostShip!.zRotation)
+//    }
     
     override func update(currentTime: CFTimeInterval) {
         updateShipPosition()
@@ -150,6 +167,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(abs(self.tilt) > THRESHOLD) {
             let offset = self.tilt > 0 ? VELOCITY : -VELOCITY
             ship!.position.x += offset
+            ship!.mainShip!.zRotation =  CGFloat(round(-self.tilt*10000)/10000)
+            ship!.ghostShip!.zRotation =  CGFloat(round(-self.tilt*10000)/10000)
+        }
+        else {
+            ship!.mainShip!.zRotation = 0
+            ship!.ghostShip!.zRotation = 0
         }
         if(ship!.position.x > self.size.width - (ship?.size.width)! / 2) {
             ship!.position.x -= self.size.width
